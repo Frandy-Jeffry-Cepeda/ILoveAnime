@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom"
-import FadeMenu from "./FadeMenu"
-
+import MenuHeader from "./MenuHeader"
 
 export default function Header() {
   return (
@@ -37,7 +36,7 @@ export default function Header() {
                 {/*Botón para cuando estamos a menos de 768px - Móvil*/} 
 
                 <div className="md:hidden">
-                    <FadeMenu/>
+                    <MenuHeader/>
                 </div>
                 
 
