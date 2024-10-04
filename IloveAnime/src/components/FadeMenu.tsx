@@ -17,10 +17,10 @@ export default function FadeMenu() {
   };
 
   return (
-    <div>
-        <span className="text-white uppercase font-bold text-1xl">
+    <div className='flex items-center'>
+        <p className="text-white uppercase font-bold text-lg">
             Menu
-        </span>
+        </p>
 
       <Button
         id="fade-button"

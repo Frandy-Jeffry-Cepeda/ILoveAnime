@@ -7,17 +7,19 @@ export default function Header() {
 
     <header className="bg-black">
 
-        <div className="container mx-auto px-5 py-10">
+        <div className="container mx-auto p-5">
 
             <div className="flex justify-between items-center">
 
-                <div className="">
-                    <img  className="w-32" src="./Logo.PNG" alt="logotipo" />
+                <div className="cursor-pointer">
+                    <NavLink to="/">
+                        <img  className="w-24" src="./Logo.PNG" alt="logotipo" />
+                    </NavLink>
                 </div>
 
                 {/*Barra de navegación de tablet / desktop*/}
 
-                <nav className="hidden md:flex gap-4 ">
+                <nav className="hidden md:flex gap-10 text-lg">
                     <NavLink
                         to="/"
                         className={({isActive}) => isActive ? 'text-white border-b-2 font-bold uppercase' : 'text-white font-bold uppercase'}
@@ -34,7 +36,7 @@ export default function Header() {
 
                 {/*Botón para cuando estamos a menos de 768px - Móvil*/} 
 
-                <div className="md:hidden flex items-center">
+                <div className="md:hidden">
                     <FadeMenu/>
                 </div>
                 
