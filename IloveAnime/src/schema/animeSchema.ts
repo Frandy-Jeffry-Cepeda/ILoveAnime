@@ -10,3 +10,19 @@ export const AnimeSeasonNowSchema = z.object({
         })
     )
 })
+
+export const AnimeRecentEpisodesSchema = z.object({
+    data: z.array(
+        z.object({
+            entry: z.object({
+                mal_id: z.number(),
+                images: z.object({
+                    webp: z.object({
+                        image_url: z.string()
+                    })
+                }),
+                title: z.string()
+            })
+        })
+    )
+})
