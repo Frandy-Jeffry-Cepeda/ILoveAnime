@@ -1,5 +1,5 @@
 import axios from "axios"
-import { AnimeSeasonNowSchema } from "../schema/animeSchema"
+import { AnimeRecentEpisodesSchema, AnimeSeasonNowSchema } from "../schema/animeSchema"
 
 export async function getAnimeSeasonNow() {
 
@@ -12,5 +12,19 @@ export async function getAnimeSeasonNow() {
     if(result.data) {
         return result.data
     }
+}
+
+export async function getAnimeRecentEpisodes() {
+
+    const url = "https://api.jikan.moe/v4/watch/episodes"
+
+    const { data } = await axios(url)
+
+    const result = AnimeRecentEpisodesSchema.safeParse(data)
+
+    if(result.data) {
+        return result.data
+    }
+
 
 }
