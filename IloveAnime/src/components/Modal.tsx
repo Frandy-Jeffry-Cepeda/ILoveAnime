@@ -6,6 +6,17 @@ export default function Modal() {
     const modal = useAppStore((state) => state.modal);
     const closeModal = useAppStore((state) => state.closeModal);
     const selectedAnimeEpisode = useAppStore((state) => state.selectedAnimeEpisode);
+    const favorites = useAppStore((state) => state.favorites);
+    const setFavoriteAnime = useAppStore((state) => state.setFavoriteAnime);
+    
+    // Función para verificar si el anime está en favoritos
+    const isFavorite = favorites.some(favorite => favorite.entry.mal_id === selectedAnimeEpisode?.entry.mal_id);
+
+    const handleFavoriteClick = () => {
+        if (selectedAnimeEpisode) {
+            setFavoriteAnime(selectedAnimeEpisode); 
+        }
+    };
 
     return (
         <>
@@ -34,7 +45,7 @@ export default function Modal() {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-4 pb-2 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xs md:max-w-lg"> {/* Cambiado a sm:max-w-xs y md:max-w-lg */}
+                                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-4 pb-2 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xs md:max-w-lg">
                                     <Dialog.Title as="h3" className="text-gray-900 text-2xl font-extrabold my-2 text-center">
                                         {selectedAnimeEpisode?.entry.title}
                                     </Dialog.Title>
@@ -45,7 +56,7 @@ export default function Modal() {
                                     />
                                     
                                     <div className="mt-2">
-                                        <p className="text-lg"> {/**/}</p>
+                                        <p className="text-lg"> {/** Información adicional */}</p>
                                     </div>
 
                                     <div className="mt-4 flex justify-between gap-1"> 
@@ -57,9 +68,11 @@ export default function Modal() {
 
                                         <button
                                             type='button'
-                                            className='w-full rounded bg-orange-600 p-2 font-bold uppercase text-white shadow hover:bg-orange-500' 
-                                            onClick={() => {}}
-                                        >Favoritos</button>
+                                            className={`w-full rounded p-2 font-bold uppercase text-white shadow bg-orange-500`} 
+                                            onClick={handleFavoriteClick}
+                                        >
+                                            {isFavorite ? 'Eliminar de Favoritos' : 'Agregar a Favoritos'}
+                                        </button>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
