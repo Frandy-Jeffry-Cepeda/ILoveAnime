@@ -6,7 +6,7 @@ export default function MainMenu() {
   const animeSeasonNow = useAppStore((state) => state.animeSeasonNow);
 
   return (
-    <div className="w-5/6 bg-gray-500 text-white py-5 my-5 text-center mx-auto rounded-lg">
+    <div className="w-full bg-gray-500 text-white py-5 my-5 text-center mx-auto rounded-lg">
       <Menu>
         {({ open }) => (
           <>
