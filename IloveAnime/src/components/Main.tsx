@@ -17,7 +17,7 @@ export default function Main() {
                             key={anime.entry.mal_id} 
                             className="relative rounded-lg transform transition hover:scale-105 cursor-pointer"
                             style={{ height: "300px" }}
-                            onClick={() => setSelectedAnimeEpisode(anime.entry.mal_id)} // Establecer el episodio seleccionado
+                            onClick={() => setSelectedAnimeEpisode(anime.entry.mal_id)}
                         >
                             <img 
                                 src={anime.entry.images.jpg.image_url} 
