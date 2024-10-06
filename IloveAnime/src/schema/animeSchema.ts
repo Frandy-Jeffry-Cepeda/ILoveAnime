@@ -17,7 +17,7 @@ export const AnimeRecentEpisodesSchema = z.object({
             entry: z.object({
                 mal_id: z.number(),
                 images: z.object({
-                    webp: z.object({
+                    jpg: z.object({
                         image_url: z.string()
                     })
                 }),
